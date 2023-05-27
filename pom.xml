@@ -23,6 +23,7 @@
         <module>order-service/order-messaging</module>
         <module>order-service/order-container</module>
         <module>common</module>
+        <module>infrastructure</module>
     </modules>
     <properties>
         <maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
