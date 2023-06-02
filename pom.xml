@@ -24,8 +24,7 @@
         <module>order-service/order-container</module>
         <module>common</module>
         <module>infrastructure</module>
-        <module>infrastructure/kafka/kafka-producer</module>
-        <module>infrastructure/kafka/kafka-config-data</module>
+        <module>customer-service</module>
     </modules>
     <properties>
         <maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>

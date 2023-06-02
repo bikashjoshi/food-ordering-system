@@ -13,6 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class RestaurantEntityId implements Serializable {
     private UUID restaurantId;
+    private UUID productId;
 
     @Override
     public boolean equals(Object o) {
@@ -26,6 +27,4 @@ public class RestaurantEntityId implements Serializable {
     public int hashCode() {
         return Objects.hash(restaurantId, productId);
     }
-
-    private UUID productId;
 }
