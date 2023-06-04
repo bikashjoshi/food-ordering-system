@@ -4,6 +4,7 @@ import com.food.ordering.system.domain.entity.BaseEntity;
 import com.food.ordering.system.domain.valueobject.CustomerId;
 import com.food.ordering.system.domain.valueobject.Money;
 import com.food.ordering.system.payment.source.domain.valueobject.CreditHistoryId;
+import com.food.ordering.system.payment.source.domain.valueobject.TransactionType;
 
 public class CreditHistory extends BaseEntity<CreditHistoryId> {
     private final CustomerId customerId;

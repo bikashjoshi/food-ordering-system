@@ -6,7 +6,7 @@ import com.food.ordering.system.domain.valueobject.PaymentStatus;
 import com.food.ordering.system.payment.source.domain.entity.CreditEntry;
 import com.food.ordering.system.payment.source.domain.entity.CreditHistory;
 import com.food.ordering.system.payment.source.domain.entity.Payment;
-import com.food.ordering.system.payment.source.domain.entity.TransactionType;
+import com.food.ordering.system.payment.source.domain.valueobject.TransactionType;
 import com.food.ordering.system.payment.source.domain.event.PaymentCancelledEvent;
 import com.food.ordering.system.payment.source.domain.event.PaymentCompletedEvent;
 import com.food.ordering.system.payment.source.domain.event.PaymentEvent;
