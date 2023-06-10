@@ -58,6 +58,8 @@ public class RestaurantMessagingDataMapper {
                                 .quantity(avroModel.getQuantity())
                                 .build())
                         .collect(Collectors.toList()))
+                .price(restaurantApprovalRequestAvroModel.getPrice())
+                .createdAt(restaurantApprovalRequestAvroModel.getCreatedAt())
                 .build();
     }
 }

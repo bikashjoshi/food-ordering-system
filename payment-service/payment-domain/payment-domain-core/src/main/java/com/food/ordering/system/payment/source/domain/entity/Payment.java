@@ -35,7 +35,7 @@ public class Payment extends AggregateRoot<PaymentId> {
     }
 
     public void updateStatus(PaymentStatus status) {
-        this.paymentStatus = paymentStatus;
+        this.paymentStatus = status;
     }
     private Payment(Builder builder) {
         setId(builder.paymentId);
