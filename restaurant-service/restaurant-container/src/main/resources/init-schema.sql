@@ -101,3 +101,30 @@ CREATE trigger refresh_order_restaurant_m_view
 after INSERT OR UPDATE OR DELETE OR truncate
 ON restaurant.restaurant_products FOR each statement
 EXECUTE PROCEDURE restaurant.refresh_order_restaurant_m_view();
+
+DROP TYPE IF EXISTS outbox_status;
+CREATE TYPE outbox_status AS ENUM ('STARTED', 'COMPLETED', 'FAILED');
+
+DROP TABLE IF EXISTS restaurant.order_outbox CASCADE;
+
+CREATE TABLE restaurant.order_outbox
+(
+    id uuid NOT NULL,
+    saga_id uuid NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    processed_at TIMESTAMP WITH TIME ZONE,
+    type character varying COLLATE pg_catalog."default" NOT NULL,
+    payload character varying COLLATE pg_catalog."default" NOT NULL,
+    outbox_status varchar(15) NOT NULL,
+    approval_status varchar(15) NOT NULL,
+    version integer NOT NULL,
+    CONSTRAINT order_outbox_pkey PRIMARY KEY (id)
+);
+
+CREATE INDEX "restaurant_order_outbox_saga_status"
+    ON "restaurant".order_outbox
+    (type, approval_status);
+
+CREATE UNIQUE INDEX "restaurant_order_outbox_saga_id"
+    ON "restaurant".order_outbox
+    (type, saga_id, approval_status, outbox_status);
